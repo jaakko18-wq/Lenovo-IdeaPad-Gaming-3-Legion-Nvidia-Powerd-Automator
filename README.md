@@ -53,7 +53,6 @@ Save (Ctrl+O, Enter) and Exit (Ctrl+X). Then type exit to leave the root shell.
 2. Create the Monitoring Script
 
 This script listens to the D-Bus for profile changes.
-    Bash
 
     mkdir -p ~/.local/bin
     nano ~/.local/bin/nvidia-profile-monitor.sh
