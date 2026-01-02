@@ -4,6 +4,7 @@ This project automates the nvidia-powerd.service restart on Arch Linux when swit
 ⚠️ Disclaimer
 
 Use at your own risk. This software is provided "as is", without warranty of any kind. The author is not responsible for any damage to your hardware, data loss, or system instability caused by these scripts. Always review the code before running it on your system.
+
 🌟 Features
 
 -Fn+Q Support: Detects hardware-level profile switches and optimizes the Nvidia service immediately.
