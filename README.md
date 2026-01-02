@@ -60,9 +60,9 @@ This script listens to the D-Bus for profile changes.
 Paste the following:
 #!/bin/bash
 
-# Listen for power profile changes
-gdbus monitor --system --dest net.hadess.PowerProfiles --object-path /net/hadess/PowerProfiles | \
-while read -r line; do
+      # Listen for power profile changes
+      gdbus monitor --system --dest net.hadess.PowerProfiles --object-path /net/hadess/PowerProfiles | \
+      while read -r line; do
     if [[ "$line" == *"ActiveProfile"* ]]; then
         # Get the new profile
         PROFILE=$(powerprofilesctl get)
