@@ -20,7 +20,9 @@ Use at your own risk. This software is provided "as is", without warranty of any
 
    Enables Fn+Q and profile management on Linux.
 
-   Arch Linux install: yay -S lenovo-legion-module-dkms-git
+   Arch Linux install:
+   
+         yay -S lenovo-legion-module-dkms-git
 
     Desktop Environment: KDE Plasma 6.
 
