@@ -43,6 +43,63 @@ Use at your own risk. This software is provided "as is", without warranty of any
     Tools: qt6-declarative (provides the qdbus6 command).
 
 🚀 Installation
+1. # Lenovo IdeaPad Gaming 3 - Nvidia Powerd Automator
+
+This project provides an automated fix for **Lenovo IdeaPad Gaming 3** (specifically tested on **15ACH6**) and similar Lenovo laptops running Linux. It ensures that your NVIDIA GPU reaches its full power limit (TGP) when switching power profiles.
+
+## The Problem
+When you switch power profiles using **Fn+Q** (e.g., to Performance Mode), the NVIDIA GPU often remains locked at a lower power limit (e.g., **60W**) instead of its maximum potential (**85W**). 
+
+This happens because the `nvidia-powerd.service` (responsible for NVIDIA Dynamic Boost) does not always detect the hardware profile change in real-time on Linux.
+
+## The Solution versio 2
+This tool implements a lightweight, event-driven fix using a **systemd path unit**. 
+- It monitors the system file `/sys/firmware/acpi/platform_profile` for changes.
+- When you press **Fn+Q**, the system detects the modification instantly.
+- It automatically restarts the `nvidia-powerd.service` after a 2-second delay to ensure the new power limit is applied.
+
+**Why this is better than a background script:**
+- **Zero CPU usage:** It doesn't run in a loop; it only "wakes up" when the profile file is actually modified.
+- **Native Integration:** It uses standard Linux systemd units.
+
+## Installation
+
+1. **Clone the repository:**
+
+         git clone [https://github.com/jaakko18-wq/Lenovo-IdeaPad-Gaming-3-Legion-Nvidia-Powerd-Automator.git](https://github.com/jaakko18-wq/Lenovo-IdeaPad-Gaming-3-Legion-Nvidia-Powerd-Automator.git)
+         cd Lenovo-IdeaPad-Gaming-3-Legion-Nvidia-Powerd-Automator
+
+Run the installer:
+
+    sudo chmod +x install.sh
+    sudo ./install.sh
+
+Uninstallation
+
+If you wish to remove the automation:
+
+      sudo chmod +x uninstall.sh
+      sudo ./uninstall.sh
+
+Requirements
+
+   A Lenovo laptop using lenovolegionlinux or standard ACPI profiles.
+
+   NVIDIA proprietary drivers.
+
+   nvidia-powerd.service (Common on modern distros like Ubuntu, Arch, CachyOS, etc.).
+
+Verification
+
+To verify it works, switch profiles with Fn+Q and check the service status:
+Bash
+
+      systemctl status nvidia-powerd.service
+
+You should see that the service restarted a few seconds ago. You can also verify the power limit using nvidia-smi.
+
+or this versio 1 
+
 1. Configure Sudoers (Passwordless Restart) To allow the script to restart the service without a password, you need to create a rule. On some systems, you must switch to the root user first to access the sudoers directory.
 
          # Switch to root user
