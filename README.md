@@ -71,11 +71,27 @@ Reload rules:
 
 🖥 KDE Plasma 6 Notifications (Advanced)
 
-If you want KDE OSD notifications, you can use the monitor script included in the legacy_script folder:
+If you want KDE OSD notifications, you can use the monitor script included in the With OSD folder:
 
    Ensure qt6-declarative (for qdbus6) is installed.
 
    The script listens to D-Bus for ActiveProfile changes and triggers the KDE OSD Service.
+   1.  **Clone the repository:**
+
+    git clone https://github.com/jaakko18-wq/Lenovo-IdeaPad-Gaming-3-Legion-Nvidia-Powerd-Automator.git
+    cd Lenovo-IdeaPad-Gaming-3-Legion-Nvidia-Powerd-Automator
+    cd with OSD
+
+3.  **Run the installer:**
+    ```bash
+    sudo chmod +x install.sh
+    sudo ./install.sh
+    ```
+
+4.  **Follow the prompts:**
+    * The script will ask if you want to install the **KDE OSD notifications**.
+    * If you chose **Yes**, remember to run the activation command provided at the end of the script (without sudo).
+
 
 🔍 Verification
 
